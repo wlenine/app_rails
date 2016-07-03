@@ -72,3 +72,88 @@ Processing by BooksController#index as HTML
   [1m[36mBook Load (0.2ms)[0m  [1mSELECT "books".* FROM "books"[0m
   Rendered books/index.html.erb within layouts/application (1.3ms)
 Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTeams (20160703124515)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "teams" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "country" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160703124515"]]
+  [1m[36m (91.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/teams" for 127.0.0.1 at 2016-07-03 09:46:12 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TeamsController#index as HTML
+  [1m[35mTeam Load (0.1ms)[0m  SELECT "teams".* FROM "teams"
+  Rendered teams/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 315ms (Views: 306.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/teams.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-07-03 09:46:12 -0300
+
+
+Started GET "/assets/teams.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-07-03 09:46:12 -0300
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2016-07-03 09:46:15 -0300
+Processing by TeamsController#new as HTML
+  Rendered teams/_form.html.erb (16.2ms)
+  Rendered teams/new.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 42ms (Views: 36.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/teams" for 127.0.0.1 at 2016-07-03 09:46:26 -0300
+Processing by TeamsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EkxdtIlA8uHtqMKji6io4O2kJ9jY/1IHRZv5ggXiAaflbxnH1UUB2zDHnuZO9j9pT5f8HfdvH5iZ3ThkP4Wc1g==", "team"=>{"name"=>"Vasco", "country"=>"Brasil"}, "commit"=>"Create Team"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "teams" ("name", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Vasco"], ["country", "Brasil"], ["created_at", "2016-07-03 12:46:26.405096"], ["updated_at", "2016-07-03 12:46:26.405096"]]
+  [1m[36m (150.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1
+Completed 302 Found in 156ms (ActiveRecord: 150.4ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2016-07-03 09:46:26 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 23ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/teams" for 127.0.0.1 at 2016-07-03 09:46:28 -0300
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2016-07-03 09:46:29 -0300
+Processing by TeamsController#new as HTML
+  Rendered teams/_form.html.erb (2.0ms)
+  Rendered teams/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/teams" for 127.0.0.1 at 2016-07-03 09:46:49 -0300
+Processing by TeamsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3A3BPYdQTzeDDZuZTfC17HVwE/8kh2YnnZXUvnEN2kArLoVO21W8DV5ix9yIriJl10PIOgsXK7hB0xVYS2pHMQ==", "team"=>{"name"=>"Man Utd", "country"=>"Inglaterra"}, "commit"=>"Create Team"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teams" ("name", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Man Utd"], ["country", "Inglaterra"], ["created_at", "2016-07-03 12:46:49.184150"], ["updated_at", "2016-07-03 12:46:49.184150"]]
+  [1m[35m (146.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/teams/2
+Completed 302 Found in 150ms (ActiveRecord: 146.9ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2016-07-03 09:46:49 -0300
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/teams" for 127.0.0.1 at 2016-07-03 09:46:51 -0300
+Processing by TeamsController#index as HTML
+  [1m[35mTeam Load (0.2ms)[0m  SELECT "teams".* FROM "teams"
+  Rendered teams/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.2ms)
